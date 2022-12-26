@@ -6,6 +6,7 @@ public class SoundController : MonoBehaviour
 {
     AudioSource audioSource;
 
+    [SerializeField] Camera mainCam;
     [SerializeField] float startDelay = 0f;
     [SerializeField, Range(0f, 3f)] float fadeInTime = 0f;
     [SerializeField, Range(0f, 3f)] float fadeOutTime = 0f;
@@ -19,6 +20,11 @@ public class SoundController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         // TODO read volume parameter from settings
         PlaySound();
+    }
+
+    private void Update()
+    {
+        transform.position = mainCam.transform.position;
     }
 
     public void PlaySound()

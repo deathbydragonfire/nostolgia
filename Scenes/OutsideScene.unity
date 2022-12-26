@@ -319,7 +319,7 @@ PrefabInstance:
       objectReference: {fileID: 808306002}
     - target: {fileID: 346724195805077010, guid: ce5d4d0a888424f4287acc6aadeab569, type: 3}
       propertyPath: startDelay
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce5d4d0a888424f4287acc6aadeab569, type: 3}
@@ -1620,7 +1620,7 @@ PrefabInstance:
       objectReference: {fileID: 808306002}
     - target: {fileID: 5332598211090783984, guid: a5e842ec41185d5429767e4093458d5e, type: 3}
       propertyPath: startDelay
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5332598211090783998, guid: a5e842ec41185d5429767e4093458d5e, type: 3}
       propertyPath: m_RootOrder

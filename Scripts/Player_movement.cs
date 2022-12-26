@@ -9,6 +9,7 @@ public class Player_movement : MonoBehaviour
     float h = 0f;
     bool j = false;
     public float runspeed = 40f;
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,11 +21,12 @@ public class Player_movement : MonoBehaviour
     {
         h = Input.GetAxisRaw("Horizontal") * runspeed;
         j = Input.GetAxisRaw("Jump") > 0;
-       
+        animator.SetFloat("speed", Mathf.Abs(h));
     }
 
     private void FixedUpdate()
     {
+
         cc2D.Move(h * Time.fixedDeltaTime, false, j);
 
     }

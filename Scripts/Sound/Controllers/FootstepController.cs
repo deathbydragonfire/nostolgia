@@ -17,6 +17,7 @@ public class FootstepController : MonoBehaviour
 
     public void PlayFootstep()
     {
+        Debug.Log("footsteps");
         // TODO get SFX volume from settings and scale accordingly
         int index = Random.Range(0, clips.Count);
         float volume = Random.Range(volumeMin, volumeMax); // SCALE THIS

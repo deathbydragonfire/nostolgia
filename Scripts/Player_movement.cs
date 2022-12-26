@@ -7,6 +7,7 @@ public class Player_movement : MonoBehaviour
 
     public CharacterController2D cc2D;
     float h = 0f;
+    bool j = false;
     public float runspeed = 40f;
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,13 @@ public class Player_movement : MonoBehaviour
     void Update()
     {
         h = Input.GetAxisRaw("Horizontal") * runspeed;
-        cc2D.Move(h * Time.fixedDeltaTime, false, false);
+        j = Input.GetAxisRaw("Jump") > 0;
+       
+    }
+
+    private void FixedUpdate()
+    {
+        cc2D.Move(h * Time.fixedDeltaTime, false, j);
+
     }
 }

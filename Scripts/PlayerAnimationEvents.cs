@@ -6,7 +6,7 @@ public class PlayerAnimationEvents : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public FootstepController footsteps_Controller;
+    public SFXController footsteps_Controller;
     void Start()
     {
         

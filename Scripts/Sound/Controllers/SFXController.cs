@@ -17,6 +17,13 @@ public class SFXController : MonoBehaviour
     [SerializeField, Range(0f, 1f)] float jumpLandingVolumeMax = 0.5f;
 
 
+    [Header("Attack")]
+    [SerializeField] AudioSource attackSource;
+    [SerializeField] AudioClip attackClip;
+    [SerializeField, Range(0f, 1f)] float attackVolumeMin = 0.4f;
+    [SerializeField, Range(0f, 1f)] float attackVolumeMax = 0.5f;
+
+
     public void PlayFootstep()
     {
         // TODO get SFX volume from settings and scale accordingly
@@ -29,5 +36,11 @@ public class SFXController : MonoBehaviour
     {
         float volume = Random.Range(jumpLandingVolumeMin, jumpLandingVolumeMax);
         jumpLandingSource.PlayOneShot(jumpLandingClip, volume);
+    }
+
+    public void PlayAttack()
+    {
+        float volume = Random.Range(attackVolumeMin, attackVolumeMax);
+        attackSource.PlayOneShot(attackClip, volume);
     }
 }

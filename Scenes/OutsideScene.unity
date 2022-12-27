@@ -135,6 +135,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 319782816}
     m_Modifications:
+    - target: {fileID: 1068066498, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
+      propertyPath: attackClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e68e9f431e9dacd47b7a9d2862d37904, type: 3}
+    - target: {fileID: 1068066498, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
+      propertyPath: attackSource
+      value: 
+      objectReference: {fileID: 129267315}
+    - target: {fileID: 1068066498, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
+      propertyPath: attackVolumeMax
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068066498, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
+      propertyPath: attackVolumeMin
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8578648896619903550, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -183,9 +199,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: SFXController
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -1221754957680506777, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
+--- !u!82 &129267315 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3907346679706437678, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
+  m_PrefabInstance: {fileID: 129267314}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &151319451
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,44 +1459,12 @@ Transform:
   m_Father: {fileID: 942490794}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1068066496 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8578648896619903551, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
-  m_PrefabInstance: {fileID: 129267314}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1068066498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1068066496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8c2c41509ec327439c591e3655a2ad8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  footstepSource: {fileID: 1547255963}
-  footstepClips:
-  - {fileID: 8300000, guid: 9a3321fd75f92fe4da1896e054515426, type: 3}
-  - {fileID: 8300000, guid: e287526795fceb64db6983a6da4191b7, type: 3}
-  - {fileID: 8300000, guid: b87742c13dd20844bb54c97aa19f0aed, type: 3}
-  - {fileID: 8300000, guid: 2574e508c248a1b499f56a51558b667f, type: 3}
-  - {fileID: 8300000, guid: 7d930cb76f6400842884e31c5eabaf8c, type: 3}
-  - {fileID: 8300000, guid: 47b1bf022d7f5d04997005f4ba953c36, type: 3}
-  - {fileID: 8300000, guid: 9879640d9dcba3b4b84484bc5555cb1d, type: 3}
-  footstepVolumeMin: 0.229
-  footstepVolumeMax: 0.353
-  jumpLandingSource: {fileID: 0}
-  jumpLandingClip: {fileID: 0}
-  jumpLandingVolumeMin: 0.4
-  jumpLandingVolumeMax: 0.5
 --- !u!114 &1068066499 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1068066498, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
   m_PrefabInstance: {fileID: 129267314}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1068066496}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8c2c41509ec327439c591e3655a2ad8, type: 3}
@@ -1548,7 +1536,7 @@ PrefabInstance:
     - target: {fileID: 2583090773005725729, guid: 07f788822d761bc4c8e708071607089d, type: 3}
       propertyPath: footsteps_Controller
       value: 
-      objectReference: {fileID: 1068066498}
+      objectReference: {fileID: 0}
     - target: {fileID: 8930995397479822944, guid: 07f788822d761bc4c8e708071607089d, type: 3}
       propertyPath: orb
       value: 
@@ -1783,11 +1771,6 @@ Transform:
   m_Father: {fileID: 942490794}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &1547255963 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1260326025, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
-  m_PrefabInstance: {fileID: 129267314}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1612646172
 GameObject:
   m_ObjectHideFlags: 0

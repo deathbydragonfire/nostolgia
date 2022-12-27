@@ -11,6 +11,7 @@ public class PlayerAttacker : MonoBehaviour
     bool attacking = false;
     public Animator anim;
     public OrbAttacker orb;
+    public GameObject bulletPrefab;
 
 
     void Update()
@@ -28,6 +29,8 @@ public class PlayerAttacker : MonoBehaviour
             // Start the attack event
             anim.SetTrigger("attacking");
             orb.Attack();
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+            bullet.transform.localScale = transform.localScale;
         }
     }
 

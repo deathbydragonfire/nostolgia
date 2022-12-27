@@ -471,6 +471,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 319782816}
+  - component: {fileID: 319782817}
   m_Layer: 0
   m_Name: Controllers
   m_TagString: Untagged
@@ -496,6 +497,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &319782817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319782815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 124b28777bb97a549b1dae832c698530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicController: {fileID: 1977024682}
+  ambientController: {fileID: 1353004906}
+  sfxController: {fileID: 1068066499}
+  fadeoutCompleted: 0
+  outsideMusic: {fileID: 11400000, guid: d235ad0a7b0a01848a4a5b27500cd466, type: 2}
+  outsideAmbient: {fileID: 11400000, guid: 83f1a978ad40be74a908ddc840126366, type: 2}
 --- !u!1 &524273826
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,6 +1471,17 @@ MonoBehaviour:
   jumpLandingClip: {fileID: 0}
   jumpLandingVolumeMin: 0.4
   jumpLandingVolumeMax: 0.5
+--- !u!114 &1068066499 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1068066498, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
+  m_PrefabInstance: {fileID: 129267314}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068066496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8c2c41509ec327439c591e3655a2ad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1072476085
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1710,6 +1740,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5e842ec41185d5429767e4093458d5e, type: 3}
+--- !u!114 &1353004906 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 346724195805077010, guid: ce5d4d0a888424f4287acc6aadeab569, type: 3}
+  m_PrefabInstance: {fileID: 179285050}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7beb6da13a98b104da6f7b133c28d15d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1439053749
 GameObject:
   m_ObjectHideFlags: 0
@@ -1968,6 +2009,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5332598211090783998, guid: a5e842ec41185d5429767e4093458d5e, type: 3}
   m_PrefabInstance: {fileID: 1243681540}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1977024682 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5332598211090783984, guid: a5e842ec41185d5429767e4093458d5e, type: 3}
+  m_PrefabInstance: {fileID: 1243681540}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7beb6da13a98b104da6f7b133c28d15d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2055826521
 GameObject:
   m_ObjectHideFlags: 0

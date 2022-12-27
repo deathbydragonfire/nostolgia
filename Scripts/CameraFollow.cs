@@ -8,7 +8,18 @@ public class CameraFollow : MonoBehaviour
     // The boundaries of the camera movement
     public Vector2 minBounds;
     public Vector2 maxBounds;
+    public float smoothness = 0.1f;
 
+    private void Start()
+    {
+        Vector3 currentPos = transform.position;
+        Vector3 targetPos = target.position;
+        Vector3 newPos = new Vector3(targetPos.x, targetPos.y, currentPos.z);
+        // Ensure that the new position of the camera is within the defined boundaries
+        newPos.x = Mathf.Clamp(newPos.x, minBounds.x, maxBounds.x);
+        newPos.y = Mathf.Clamp(newPos.y, minBounds.y, maxBounds.y);
+        transform.position = newPos;
+    }
     void Update()
     {
         // Get the current position of the camera
@@ -25,6 +36,6 @@ public class CameraFollow : MonoBehaviour
         newPos.y = Mathf.Clamp(newPos.y, minBounds.y, maxBounds.y);
 
         // Set the position of the camera to the new position
-        transform.position = newPos;
+        transform.position = Vector3.Lerp(currentPos, newPos, smoothness);
     }
 }

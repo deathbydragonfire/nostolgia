@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class SFXController : MonoBehaviour
 {
+    [Header("Footsteps")]
     [SerializeField] AudioSource footstepSource;
     [SerializeField] List<AudioClip> footstepClips = new List<AudioClip>();
     [SerializeField, Range(0f, 1f)] float footstepVolumeMin = 0.8f;
     [SerializeField, Range(0f, 1f)] float footstepVolumeMax = 1f;
 
+    [Header("Jump Landing")]
     [SerializeField] AudioSource jumpLandingSource;
     [SerializeField] AudioClip jumpLandingClip;
     [SerializeField, Range(0f, 1f)] float jumpLandingVolumeMin = 0.4f;

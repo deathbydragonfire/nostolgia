@@ -6,45 +6,37 @@ public class SoundController : MonoBehaviour
 {
     AudioSource audioSource;
 
-    [SerializeField] Camera mainCam;
-    [SerializeField] float startDelay = 0f;
-    [SerializeField, Range(0f, 3f)] float fadeInTime = 0f;
-    [SerializeField, Range(0f, 3f)] float fadeOutTime = 0f;
-
     Coroutine soundCoroutine = null;
 
+    AudioSO currentAudioSO;
     public bool fadeOutCompleted = false;
 
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         // TODO read volume parameter from settings
-        PlaySound();
     }
 
-    private void Update()
+    public void PlaySound(AudioSO audioSO)
     {
-        transform.position = mainCam.transform.position;
-    }
-
-    public void PlaySound()
-    {
+        currentAudioSO = audioSO;
         if (soundCoroutine == null)
             soundCoroutine = StartCoroutine(_PlaySound());
     }
 
     IEnumerator _PlaySound()
     {
-        yield return new WaitForSeconds(startDelay);
+        yield return new WaitForSeconds(currentAudioSO.delayTime);
 
         float timer = 0f;
         // TODO read this parameter from settings
-        float endVolume = 1f;
+        float endVolume = currentAudioSO.volume * 1f;
         audioSource.volume = 0f;
+        audioSource.clip = currentAudioSO.clip;
         audioSource.Play();
-        while (timer <= fadeInTime) {
+        while (timer <= currentAudioSO.fadeInTime) {
             timer += Time.deltaTime;
-            audioSource.volume = Mathf.Lerp(0f, endVolume, timer / fadeInTime);
+            audioSource.volume = Mathf.Lerp(0f, endVolume, timer / currentAudioSO.fadeInTime);
             yield return new WaitForEndOfFrame();
         }
         soundCoroutine = null;
@@ -64,10 +56,10 @@ public class SoundController : MonoBehaviour
     {
         float timer = 0f;
         float startVolume = audioSource.volume;
-        while (timer <= fadeOutTime)
+        while (timer <= currentAudioSO.fadeOutTime)
         {
             timer += Time.deltaTime;
-            audioSource.volume = Mathf.Lerp(startVolume, 0f, timer / fadeOutTime);
+            audioSource.volume = Mathf.Lerp(startVolume, 0f, timer / currentAudioSO.fadeOutTime);
             yield return new WaitForEndOfFrame();
         }
         audioSource.Stop();

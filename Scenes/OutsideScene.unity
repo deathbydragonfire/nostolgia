@@ -1523,6 +1523,10 @@ PrefabInstance:
       propertyPath: orb
       value: 
       objectReference: {fileID: 1811577460}
+    - target: {fileID: 8930995397479822944, guid: 07f788822d761bc4c8e708071607089d, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 1611695563090833343, guid: 326a9c7d120d2194e88b979ee78a833d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07f788822d761bc4c8e708071607089d, type: 3}
 --- !u!1 &1166100290

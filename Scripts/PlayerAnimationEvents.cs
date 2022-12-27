@@ -6,23 +6,22 @@ public class PlayerAnimationEvents : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public SFXController footsteps_Controller;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Backspace)) {
-            step();
-        }
-    }
-
+    public SFXController sfxController;
     public void step()
     {
-        Debug.Log("step");
-        footsteps_Controller.PlayFootstep();
+        checkSFXController();
+        sfxController.PlayFootstep();
+    }
+
+    public void Land()
+    {
+        checkSFXController();
+        sfxController.PlayJumpLanding();
+    }
+
+    private void checkSFXController()
+    {
+        if (sfxController == null)
+            sfxController = FindObjectOfType<SFXController>();
     }
 }

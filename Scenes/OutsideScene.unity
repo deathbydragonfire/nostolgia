@@ -135,22 +135,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 319782816}
     m_Modifications:
-    - target: {fileID: 1068066498, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
-      propertyPath: attackClip
-      value: 
-      objectReference: {fileID: 8300000, guid: e68e9f431e9dacd47b7a9d2862d37904, type: 3}
-    - target: {fileID: 1068066498, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
-      propertyPath: attackSource
-      value: 
-      objectReference: {fileID: 129267315}
-    - target: {fileID: 1068066498, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
-      propertyPath: attackVolumeMax
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1068066498, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
-      propertyPath: attackVolumeMin
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8578648896619903550, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -201,11 +185,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
---- !u!82 &129267315 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 3907346679706437678, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
-  m_PrefabInstance: {fileID: 129267314}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &151319451
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,9 +1513,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2583090773005725729, guid: 07f788822d761bc4c8e708071607089d, type: 3}
+      propertyPath: sfxController
+      value: 
+      objectReference: {fileID: 1068066499}
+    - target: {fileID: 2583090773005725729, guid: 07f788822d761bc4c8e708071607089d, type: 3}
       propertyPath: footsteps_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1068066499}
     - target: {fileID: 8930995397479822944, guid: 07f788822d761bc4c8e708071607089d, type: 3}
       propertyPath: orb
       value: 
@@ -1545,6 +1528,10 @@ PrefabInstance:
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 1611695563090833343, guid: 326a9c7d120d2194e88b979ee78a833d, type: 3}
+    - target: {fileID: 8930995397479822944, guid: 07f788822d761bc4c8e708071607089d, type: 3}
+      propertyPath: sfxController
+      value: 
+      objectReference: {fileID: 1068066499}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07f788822d761bc4c8e708071607089d, type: 3}
 --- !u!1 &1166100290

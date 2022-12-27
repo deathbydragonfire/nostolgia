@@ -13,6 +13,7 @@ public class PlayerAttacker : MonoBehaviour
     public OrbAttacker orb;
     public GameObject bulletPrefab;
 
+    [SerializeField] SFXController sfxController;
 
     void Update()
     {
@@ -31,6 +32,9 @@ public class PlayerAttacker : MonoBehaviour
             orb.Attack();
             GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
             bullet.transform.localScale = transform.localScale;
+            if (sfxController == null)
+                sfxController = FindObjectOfType<SFXController>();
+            sfxController.PlayAttack();
         }
     }
 

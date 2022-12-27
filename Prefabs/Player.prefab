@@ -323,6 +323,8 @@ MonoBehaviour:
   attackCooldown: 0.6
   anim: {fileID: 839480270470735872}
   orb: {fileID: 0}
+  bulletPrefab: {fileID: 0}
+  sfxController: {fileID: 0}
 --- !u!1001 &1381953349903479740
 PrefabInstance:
   m_ObjectHideFlags: 0

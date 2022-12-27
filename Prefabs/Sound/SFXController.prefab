@@ -537,8 +537,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7d930cb76f6400842884e31c5eabaf8c, type: 3}
   - {fileID: 8300000, guid: 47b1bf022d7f5d04997005f4ba953c36, type: 3}
   - {fileID: 8300000, guid: 9879640d9dcba3b4b84484bc5555cb1d, type: 3}
-  footstepVolumeMin: 0.075
-  footstepVolumeMax: 0.15
+  footstepVolumeMin: 0.2
+  footstepVolumeMax: 0.25
   jumpLandingSource: {fileID: 8199619849189864020}
   jumpLandingClip: {fileID: 8300000, guid: bfd745b06a0f25e45bf1e18df74e450c, type: 3}
   jumpLandingVolumeMin: 0.15

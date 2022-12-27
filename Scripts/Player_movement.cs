@@ -10,10 +10,12 @@ public class Player_movement : MonoBehaviour
     bool j = false;
     public float runspeed = 40f;
     public Animator animator;
+    Rigidbody2D rb2d;
+    bool grounded = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -21,7 +23,11 @@ public class Player_movement : MonoBehaviour
     {
         h = Input.GetAxisRaw("Horizontal") * runspeed;
         j = Input.GetAxisRaw("Jump") > 0;
+        grounded = cc2D.IsGrounded();
         animator.SetFloat("speed", Mathf.Abs(h));
+        animator.SetBool("jumping", j);
+        animator.SetFloat("vertical", rb2d.velocity.y);
+        animator.SetBool("grounded", grounded);
     }
 
     private void FixedUpdate()

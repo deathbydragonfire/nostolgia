@@ -1448,6 +1448,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9879640d9dcba3b4b84484bc5555cb1d, type: 3}
   footstepVolumeMin: 0.229
   footstepVolumeMax: 0.353
+  jumpLandingSource: {fileID: 0}
+  jumpLandingClip: {fileID: 0}
+  jumpLandingVolumeMin: 0.4
+  jumpLandingVolumeMax: 0.5
 --- !u!1001 &1072476085
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1502,6 +1506,10 @@ PrefabInstance:
     - target: {fileID: 839480270470735928, guid: 07f788822d761bc4c8e708071607089d, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 839480270470735932, guid: 07f788822d761bc4c8e708071607089d, type: 3}
+      propertyPath: OnLandEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2583090773005725729, guid: 07f788822d761bc4c8e708071607089d, type: 3}
       propertyPath: footsteps_Controller

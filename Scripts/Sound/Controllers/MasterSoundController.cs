@@ -96,7 +96,7 @@ public class MasterSoundController : MonoBehaviour
             ambientController1.PlaySoundLooped(outsideAmbient);
             ambientController2.PlaySoundLooped(caveAmbient);
         }
-        else if (scene.name == "BossSoundTestScene" && currentScene != "BossSoundTestScene") 
+        else if (scene.name == "BossScene" && currentScene != "BossScene") 
         {
             double startTime = AudioSettings.dspTime + 0.1;
             double durationFirstLoop = (double) bossMusicFirstLoop.clip.samples / bossMusicFirstLoop.clip.frequency;

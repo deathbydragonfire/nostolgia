@@ -19,6 +19,12 @@ public class PlayerAnimationEvents : MonoBehaviour
         sfxController.PlayJumpLanding();
     }
 
+    public void Laser()
+    {
+        checkSFXController();
+        sfxController.PlayLaser();
+    }
+
     private void checkSFXController()
     {
         if (sfxController == null)

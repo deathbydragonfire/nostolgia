@@ -52,13 +52,11 @@ MonoBehaviour:
   mixer: {fileID: 24100000, guid: 759f0313105b2ec45bb659cb7ae26f87, type: 2}
   musicController1: {fileID: 3526612241517813065}
   musicController2: {fileID: 3526612242489960197}
-  musicController3: {fileID: 0}
   ambientController1: {fileID: 9097259316485137045}
   ambientController2: {fileID: 9097259317820803928}
   sfxController: {fileID: 8858645302722789389}
   fadeoutCompleted: 0
   outsideMusic: {fileID: 11400000, guid: d235ad0a7b0a01848a4a5b27500cd466, type: 2}
-  bossMusicIntro: {fileID: 11400000, guid: c4f5a272d17f1a74a8e9e119a13891f3, type: 2}
   bossMusicFirstLoop: {fileID: 11400000, guid: eaa2934d270036c4f99a11a63a2af99c, type: 2}
   bossMusicLoop: {fileID: 11400000, guid: 04d6e8a812264254e8c682e1a382356c, type: 2}
   outsideAmbient: {fileID: 11400000, guid: 83f1a978ad40be74a908ddc840126366, type: 2}
@@ -159,45 +157,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 8858645302000480029}
     m_Modifications:
     - target: {fileID: 1068066498, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
-      propertyPath: attackClip
+      propertyPath: masterSoundController
       value: 
-      objectReference: {fileID: 8300000, guid: ab81480687d26db49b689d5f63b1a5cc, type: 3}
-    - target: {fileID: 1068066498, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
-      propertyPath: footstepVolumeMax
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1068066498, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
-      propertyPath: footstepVolumeMin
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1068066498, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
-      propertyPath: footstepClips.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1068066498, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
-      propertyPath: footstepClips.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: e287526795fceb64db6983a6da4191b7, type: 3}
-    - target: {fileID: 1068066498, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
-      propertyPath: footstepClips.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: b87742c13dd20844bb54c97aa19f0aed, type: 3}
-    - target: {fileID: 1068066498, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
-      propertyPath: footstepClips.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: 2574e508c248a1b499f56a51558b667f, type: 3}
-    - target: {fileID: 1068066498, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
-      propertyPath: footstepClips.Array.data[3]
-      value: 
-      objectReference: {fileID: 8300000, guid: 7d930cb76f6400842884e31c5eabaf8c, type: 3}
-    - target: {fileID: 1068066498, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
-      propertyPath: footstepClips.Array.data[4]
-      value: 
-      objectReference: {fileID: 8300000, guid: 47b1bf022d7f5d04997005f4ba953c36, type: 3}
-    - target: {fileID: 1068066498, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
-      propertyPath: footstepClips.Array.data[5]
-      value: 
-      objectReference: {fileID: 8300000, guid: 9879640d9dcba3b4b84484bc5555cb1d, type: 3}
+      objectReference: {fileID: 8858645302000480028}
     - target: {fileID: 8578648896619903550, guid: 889527cfd240f9b43930a4516dc1d384, type: 3}
       propertyPath: m_RootOrder
       value: 4

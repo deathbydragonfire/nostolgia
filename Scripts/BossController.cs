@@ -23,6 +23,7 @@ public class BossController : MonoBehaviour
     public Animator animator;
 
     private Vector2 nextCorner;
+    private int nextCornerIndex = -1;
     private float roamingtime;
 
     public bool move = true;
@@ -129,7 +130,24 @@ public class BossController : MonoBehaviour
 
     void GetNextCorner()
     {
-        nextCorner = corners[Random.Range(0, corners.Length)];
+        if (nextCornerIndex < 0 || corners.Length < 2)
+        {
+            nextCornerIndex = corners.Length - 1;
+        } else
+        {
+            if (nextCornerIndex == 0)
+            {
+                nextCornerIndex++;
+            } else if (nextCornerIndex == corners.Length-1)
+            {
+                nextCornerIndex--;
+            } else
+            {
+                nextCornerIndex += (int)Mathf.Sign(Random.Range(-1, 2));
+            }
+        }
+        Debug.Log("Corner: " + nextCornerIndex);
+        nextCorner = corners[nextCornerIndex];
     }
 
     void seek()

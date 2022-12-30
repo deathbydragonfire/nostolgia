@@ -66,12 +66,8 @@ public class MasterSoundController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Cut();
-        }
-        
-        fadeoutCompleted = musicController1.fadeOutCompleted && ambientController1.fadeOutCompleted;
+        fadeoutCompleted = musicController1.fadeOutCompleted && ambientController1.fadeOutCompleted &&
+                           musicController2.fadeOutCompleted && ambientController1.fadeOutCompleted;
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player");
         if (player == null)
@@ -96,12 +92,10 @@ public class MasterSoundController : MonoBehaviour
             ambientController1.PlaySoundLooped(outsideAmbient);
             ambientController2.PlaySoundLooped(caveAmbient);
         }
-        else if (scene.name == "BossScene" && currentScene != "BossScene") 
+        else if (scene.name == "BossScene" && currentScene != "BossScene")
         {
-            double startTime = AudioSettings.dspTime + 0.1;
-            double durationFirstLoop = (double) bossMusicFirstLoop.clip.samples / bossMusicFirstLoop.clip.frequency;
-            musicController1.PlaySoundScheduledOnce(bossMusicFirstLoop, startTime);
-            musicController2.PlaySoundScheduledLooped(bossMusicLoop, startTime + durationFirstLoop);
+            ambientController1.PlaySoundLooped(caveAmbient);
+            PlayBossMusic();
         }
 
         currentScene = scene.name;
@@ -113,6 +107,22 @@ public class MasterSoundController : MonoBehaviour
         musicController2.StopSound();
         ambientController1.StopSound();
         ambientController2.StopSound();
+    }
+
+    public void PlayBossMusic()
+    {
+        double startTime = AudioSettings.dspTime + 0.1;
+        double durationFirstLoop = (double) bossMusicFirstLoop.clip.samples / bossMusicFirstLoop.clip.frequency;
+        musicController1.PlaySoundScheduledOnce(bossMusicFirstLoop, startTime);
+        musicController2.PlaySoundScheduledLooped(bossMusicLoop, startTime + durationFirstLoop);
+        ambientController1.StopSound();
+    }
+
+    public void StopBossMusic() 
+    {
+        musicController1.StopSound();
+        musicController2.StopSound();
+        ambientController1.PlaySoundLooped(caveAmbient);
     }
 
     public void Cut()

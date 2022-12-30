@@ -16,4 +16,4 @@ MonoBehaviour:
   volume: 1
   delayTime: 0
   fadeInTime: 1
-  fadeOutTime: 0
+  fadeOutTime: 2

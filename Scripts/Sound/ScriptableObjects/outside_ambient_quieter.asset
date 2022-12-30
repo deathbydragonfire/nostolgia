@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a593943f8deefc4a8e04909b573f709, type: 3}
-  m_Name: cave_ambient
+  m_Name: outside_ambient_quieter
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 683fcdcf7abd8e240ab058cb35f3ab1a, type: 3}
-  volume: 1
+  clip: {fileID: 8300000, guid: cd47cd985d0e03842a2c980d7ee83529, type: 3}
+  volume: 0.5
   delayTime: 0
-  fadeInTime: 0
+  fadeInTime: 1
   fadeOutTime: 2

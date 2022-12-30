@@ -60,7 +60,7 @@ MonoBehaviour:
   bossMusicFirstLoop: {fileID: 11400000, guid: eaa2934d270036c4f99a11a63a2af99c, type: 2}
   bossMusicLoop: {fileID: 11400000, guid: 04d6e8a812264254e8c682e1a382356c, type: 2}
   outsideAmbient: {fileID: 11400000, guid: 83f1a978ad40be74a908ddc840126366, type: 2}
-  caveAmbient: {fileID: 11400000, guid: 1bb9739491657e04a897c5b39adfdff1, type: 2}
+  caveAmbient: {fileID: 11400000, guid: e4479e4f41b385045912f7919625d51c, type: 2}
   outsideVolumeMax: 5
   outsideVolumeMin: -2.5
   caveVolumeMax: -80
@@ -69,9 +69,9 @@ MonoBehaviour:
   yLow: -40
   cutoffLow: 2000
   cutoffHigh: 22000
-  cutoffAttack: 0.5
+  cutoffAttack: 0.05
   cutoffSustain: 1
-  cutoffDecay: 0.5
+  cutoffDecay: 1
 --- !u!1001 &8858645301781297653
 PrefabInstance:
   m_ObjectHideFlags: 0

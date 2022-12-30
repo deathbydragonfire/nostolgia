@@ -17,11 +17,36 @@ public class SoundController : MonoBehaviour
         // TODO read volume parameter from settings
     }
 
-    public void PlaySound(AudioSO audioSO)
+    public void PlaySoundLooped(AudioSO audioSO)
     {
+        audioSource.loop = true;
         currentAudioSO = audioSO;
         if (soundCoroutine == null)
             soundCoroutine = StartCoroutine(_PlaySound());
+    }
+
+    public void PlaySoundOnce(AudioSO audioSO)
+    {
+        audioSource.loop = false;
+        currentAudioSO = audioSO;
+        if (soundCoroutine == null)
+            soundCoroutine = StartCoroutine(_PlaySound());
+    }
+
+    public void PlaySoundScheduledLooped(AudioSO audioSO, double scheduledTime)
+    {
+        audioSource.loop = true;
+        audioSource.clip = audioSO.clip;
+        audioSource.volume = audioSO.volume; // TODO SCALE THIS
+        audioSource.PlayScheduled(scheduledTime);
+    }
+
+    public void PlaySoundScheduledOnce(AudioSO audioSO, double scheduledTime)
+    {
+        audioSource.loop = false;
+        audioSource.clip = audioSO.clip;
+        audioSource.volume = audioSO.volume; // TODO SCALE THIS
+        audioSource.PlayScheduled(scheduledTime);
     }
 
     IEnumerator _PlaySound()

@@ -114,6 +114,10 @@ AudioMixerController:
     name: ambient1Vol
   - guid: aa5a19e89ec63b7409ee55d8166eb1b4
     name: ambient2Vol
+  - guid: 93088702f1f57e24ca9491bdd3d0409f
+    name: masterVol
+  - guid: d96fe2278e340244196e747e089b8bc5
+    name: masterLPCut
   - guid: 27282c2c375a6a649ad0eb4d5971fd65
     name: musicVol
   - guid: 3371b080e4a9ca54eb95c2f4ce233db0
@@ -146,6 +150,7 @@ AudioMixerGroupController:
   m_Pitch: ad67c581d6d471e49b85c0517a3d636a
   m_Send: 00000000000000000000000000000000
   m_Effects:
+  - {fileID: 6885360826194544309}
   - {fileID: 24400004}
   m_UserColorIndex: 0
   m_Mute: 0
@@ -175,6 +180,7 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: d30445cc2d6a25e4580bf86e9866cb4a
   m_FloatValues:
+    d96fe2278e340244196e747e089b8bc5: 22000
     aa5a19e89ec63b7409ee55d8166eb1b4: 0
   m_TransitionOverrides: {}
 --- !u!243 &2053687848075672238
@@ -215,3 +221,19 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!244 &6885360826194544309
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 9b12c5273210b66408a577b04b364e02
+  m_EffectName: Lowpass Simple
+  m_MixLevel: fb9f6a0efc3ded0478ab607934bc2fc0
+  m_Parameters:
+  - m_ParameterName: Cutoff freq
+    m_GUID: d96fe2278e340244196e747e089b8bc5
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0

@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51b3c60f5eea26e4f8388a83f167c587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitTime: 0.5
+  hitTime: 1
   endTime: 2
 --- !u!61 &1641551797499578835
 BoxCollider2D:
@@ -56,7 +56,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4289404091507056057}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1

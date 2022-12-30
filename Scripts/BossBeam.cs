@@ -6,6 +6,7 @@ public class BossBeam : MonoBehaviour
 {
     float timer = 0f;
     public float hitTime = 1f;
+    public float hitEnd = 1.8f;
     public float endTime = 2f;
     bool hit = false;
     Collider2D collider;
@@ -24,7 +25,12 @@ public class BossBeam : MonoBehaviour
         if (timer > endTime)
         {
             Destroy(gameObject);
-        } else if (timer > hitTime && !hit)
+        } else if (timer > hitEnd)
+        {
+            collider.enabled = false;
+        } 
+        
+        else if (timer > hitTime && !hit)
         {
             collider.enabled = true;
             hit = true;

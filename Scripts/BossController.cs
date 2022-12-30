@@ -28,6 +28,8 @@ public class BossController : MonoBehaviour
     public bool move = true;
 
     private bool newAttack = true;
+    public GameObject beamPrefab;
+    public Transform beamAttackSource;
 
     void Start()
     {
@@ -83,15 +85,16 @@ public class BossController : MonoBehaviour
 
     void attack()
     {
-        if (Random.Range(0, 2) == 0)
+        if (Random.Range(0, 1) == 0)
         {
             // Attack 1
             animator.SetTrigger("Attack1");
+            GameObject newBeamAttack = GameObject.Instantiate(beamPrefab, beamAttackSource);
         }
         else
         {
             // Attack 2
-            animator.SetTrigger("Attack1");
+            animator.SetTrigger("Attack2");
         }
     }
 
@@ -131,6 +134,9 @@ public class BossController : MonoBehaviour
 
     void seek()
     {
-        transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, target.position.y), speed * Time.deltaTime);
+        if (move)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, target.position.y), speed * Time.deltaTime);
+        }
     }
 }

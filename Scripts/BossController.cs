@@ -71,7 +71,7 @@ public class BossController : MonoBehaviour
                 timer = 0f;
                 state = 2;
             } else {
-                Debug.Log("seek");
+                //Debug.Log("seek");
                 seek(); 
             }
             

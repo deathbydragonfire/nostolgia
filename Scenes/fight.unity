@@ -1469,7 +1469,7 @@ PrefabInstance:
       objectReference: {fileID: 1511259113817097030, guid: 88f0aec04519aaa438523343e0ed8ef6, type: 3}
     - target: {fileID: 7737572650515141942, guid: 07f788822d761bc4c8e708071607089d, type: 3}
       propertyPath: respawnScene
-      value: '"BossScene2"'
+      value: fight
       objectReference: {fileID: 0}
     - target: {fileID: 8803824666641842895, guid: 07f788822d761bc4c8e708071607089d, type: 3}
       propertyPath: anim

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     // Start is called before the first frame update
-    private int health = 5;
+    private int health = 1;
     private bool dead = false;
     float timer = 0f;
     public float deathtime = 1f;
@@ -29,7 +29,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         sfxController = GameObject.FindObjectOfType<SFXController>();
-        
+        Debug.Log(SceneManager.GetActiveScene().name);
         // Create the heart UI elements
         for (int i = 0; i < health; i++)
         {
@@ -46,6 +46,7 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(SceneManager.GetActiveScene().name);
         if (health <= 0 && !dead)
         {
             Debug.Log("Dead");

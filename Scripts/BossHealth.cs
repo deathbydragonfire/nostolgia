@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossHealth : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class BossHealth : MonoBehaviour
     private List<GameObject> hearts = new List<GameObject>();
 
     public float heartspacing = 6f;
+
+    public string respawnScene;
     void Start()
     {
         sfxController = FindObjectOfType<SFXController>();
@@ -56,8 +59,9 @@ public class BossHealth : MonoBehaviour
             timer += Time.deltaTime;
             if (timer > deathtime)
             {
+                SceneManager.LoadScene(respawnScene);
                 Destroy(gameObject);
-            }
+            } 
         }
 
         UpdateHealthUI();

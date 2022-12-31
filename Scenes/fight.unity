@@ -816,6 +816,10 @@ PrefabInstance:
       propertyPath: heartspacing
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6513001888505723811, guid: fc4e66ab23eef104085074166f0b133e, type: 3}
+      propertyPath: respawnScene
+      value: TitleScene
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc4e66ab23eef104085074166f0b133e, type: 3}
 --- !u!4 &449743891 stripped

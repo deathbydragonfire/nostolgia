@@ -5,6 +5,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine.Video;
 
 public class MasterSoundController : MonoBehaviour
@@ -13,10 +14,14 @@ public class MasterSoundController : MonoBehaviour
 
     [Header("Mixer")]
     [SerializeField] AudioMixer mixer;
-    public float masterVolume = 1f;
-    public float musicVolume = 1f;
-    public float sfxVolume = 1f;
-    public float ambientVolume = 1f;
+    [SerializeField] Slider masterSlider;
+    [SerializeField] Slider musicSlider;
+    [SerializeField] Slider ambientSlider;
+    [SerializeField] Slider sfxSlider;
+    float masterVolume = 1f;
+    float musicVolume = 1f;
+    float sfxVolume = 1f;
+    float ambientVolume = 1f;
 
     [Header("Controllers")]
     [SerializeField] SoundController musicController1;
@@ -66,6 +71,14 @@ public class MasterSoundController : MonoBehaviour
             Destroy(gameObject);
     }
 
+    private void Start()
+    {
+        masterVolume = PlayerPrefs.GetFloat("masterVol", 1f);
+        ambientVolume = PlayerPrefs.GetFloat("ambientVol", 1f);
+        musicVolume = PlayerPrefs.GetFloat("musicVol", 1f);
+        sfxVolume = PlayerPrefs.GetFloat("sfxVol", 1f);
+    }
+
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -78,18 +91,17 @@ public class MasterSoundController : MonoBehaviour
         fadeoutCompleted = musicController1.fadeOutCompleted && ambientController1.fadeOutCompleted &&
                            musicController2.fadeOutCompleted && ambientController1.fadeOutCompleted;
 
-        mixer.SetFloat("masterVol", ConvertVolumeToDB(masterVolume));
-        mixer.SetFloat("musicVol", ConvertVolumeToDB(musicVolume));
-        mixer.SetFloat("sfxVol", ConvertVolumeToDB(sfxVolume));
-
-        if (player == null)
-            player = GameObject.FindGameObjectWithTag("Player");
-        if (player == null)
-            return;
-
-        float playerY = player.transform.position.y;
+        if (currentScene == "TitleScene")
+        {
+            mixer.SetFloat("ambient1Vol", ConvertVolumeToDB(ambientVolume));
+        }
         if (currentScene == "OutsideScene")
         {
+            if (player == null)
+                player = GameObject.FindGameObjectWithTag("Player");
+            if (player == null)
+                return;
+            float playerY = player.transform.position.y;
             float outsideVolume = (outsideVolumeMax - outsideVolumeMin) / (yHigh - yLow) * (playerY - yLow) + outsideVolumeMin;
             outsideVolume = Mathf.Clamp(outsideVolume, outsideVolumeMin, outsideVolumeMax) + ConvertVolumeToDB(ambientVolume);
             mixer.SetFloat("ambient1Vol", outsideVolume);
@@ -105,7 +117,12 @@ public class MasterSoundController : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "OutsideScene" && currentScene != "OutsideScene")
+        if (scene.name == "TitleScene" && currentScene != "TitleScene")
+        {
+            musicController1.PlaySoundLooped(outsideMusic);
+            ambientController1.PlaySoundLooped(outsideAmbient);
+        }
+        else if (scene.name == "OutsideScene" && currentScene != "OutsideScene")
         {
             musicController1.PlaySoundLooped(outsideMusic);
             ambientController1.PlaySoundLooped(outsideAmbient);
@@ -116,7 +133,6 @@ public class MasterSoundController : MonoBehaviour
             ambientController1.PlaySoundLooped(caveAmbient);
             PlayBossMusic();
         }
-
         currentScene = scene.name;
     }
 
@@ -173,8 +189,36 @@ public class MasterSoundController : MonoBehaviour
         cutCoroutine = null;
     }
 
+    public void SetMasterVolume()
+    {
+        masterVolume = masterSlider.value;
+        PlayerPrefs.SetFloat("masterVol", masterVolume);
+        mixer.SetFloat("masterVol", ConvertVolumeToDB(masterVolume));
+    }
+
+    public void SetMusicVolume()
+    {
+        musicVolume = musicSlider.value;
+        PlayerPrefs.SetFloat("musicVol", musicVolume);
+        mixer.SetFloat("musicVol", ConvertVolumeToDB(musicVolume));
+    }
+
+    public void SetAmbientVolume()
+    {
+        ambientVolume = ambientSlider.value;
+        PlayerPrefs.SetFloat("ambientVol", ambientVolume);
+    }
+
+    public void SetSFXVolume()
+    {
+        sfxVolume = sfxSlider.value;
+        PlayerPrefs.SetFloat("sfxVol", sfxVolume);
+        mixer.SetFloat("sfxVol", ConvertVolumeToDB(sfxVolume));
+    }
+
     float ConvertVolumeToDB(float volume)
     {
         return Mathf.Log10(volume) * 20f;
     }
+
 }

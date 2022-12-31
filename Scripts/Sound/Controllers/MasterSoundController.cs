@@ -130,7 +130,6 @@ public class MasterSoundController : MonoBehaviour
         else if (scene.name == "BossScene2" && currentScene != "BossScene2")
         {
             ambientController1.PlaySoundLooped(caveAmbient);
-            PlayBossMusic();
         }
         currentScene = scene.name;
     }

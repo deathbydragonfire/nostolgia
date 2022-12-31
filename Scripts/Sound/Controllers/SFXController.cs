@@ -54,6 +54,12 @@ public class SFXController : MonoBehaviour
     [SerializeField] AudioSource projectileExplodeSource;
     [SerializeField] AudioClip projectileExplodeClip;
     [SerializeField, Range(0f, 1f)] float projectileExplodeVolume;
+
+    [Header("Boss Death")]
+    [SerializeField] AudioSource bossDeathSource;
+    [SerializeField] AudioClip bossDeathClip;
+    [SerializeField, Range(0f, 1f)] float bossDeathVolume;
+
     public bool fadeoutCompleted = false;
 
 
@@ -126,5 +132,10 @@ public class SFXController : MonoBehaviour
     public void PlayProjectileExplode()
     {
         projectileExplodeSource.PlayOneShot(projectileExplodeClip, projectileExplodeVolume);
+    }
+
+    public void PlayBossDeath()
+    {
+        bossDeathSource.PlayOneShot(bossDeathClip, bossDeathVolume);
     }
 }

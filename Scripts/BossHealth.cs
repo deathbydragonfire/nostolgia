@@ -10,10 +10,12 @@ public class BossHealth : MonoBehaviour
     public float deathtime = 2.5f;
     public Animator anim;
     SFXController sfxController;
+    MasterSoundController masterSoundController;
     // Start is called before the first frame update
     void Start()
     {
         sfxController = FindObjectOfType<SFXController>();
+        masterSoundController = FindObjectOfType<MasterSoundController>();
     }
 
     // Update is called once per frame
@@ -24,6 +26,8 @@ public class BossHealth : MonoBehaviour
             gameObject.SendMessage("OnDeath");
             anim.SetTrigger("dead");
             dead = true;
+            masterSoundController.StopBossMusic();
+            sfxController.PlayBossDeath();
         } else if (dead)
         {
             timer += Time.deltaTime;

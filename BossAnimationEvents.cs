@@ -20,4 +20,9 @@ public class BossAnimationEvents : MonoBehaviour
     {
         sfxController.PlayGrowl();
     }
+
+    public void WakeUp()
+    {
+        FindObjectOfType<MasterSoundController>().PlayBossMusic();
+    }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TitleScreenUI : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class TitleScreenUI : MonoBehaviour
     public void Start()
     {
         settingsScreen.SetActive(false);
+    }
+
+    public void Play()
+    {
+        SceneManager.LoadScene("OutsideScene");
     }
 
     public void ShowSettings()

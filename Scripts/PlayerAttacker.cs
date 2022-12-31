@@ -38,5 +38,9 @@ public class PlayerAttacker : MonoBehaviour
         }
     }
 
+    void OnDeath()
+    {
+        GetComponent<PlayerAttacker>().enabled = false;
+    }
     
 }

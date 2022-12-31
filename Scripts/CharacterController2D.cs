@@ -150,4 +150,9 @@ public class CharacterController2D : MonoBehaviour
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+
+	void OnDeath()
+    {
+		m_Rigidbody2D.velocity = Vector3.zero;
+    }
 }

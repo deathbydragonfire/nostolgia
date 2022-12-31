@@ -107,10 +107,15 @@ public class BossController : MonoBehaviour
         }
         else
         {
+            if (newAttack)
+            {
+                shots = 0;
+                newAttack = false;
+            }
             // Attack 2
-            Debug.Log("firetime " + firetimes.Length);
+            //Debug.Log("firetime " + firetimes.Length);
             attackPauseTime = firetimes[firetimes.Length - 1] + 2f;
-            Debug.Log("attack pause " + attackPauseTime);
+            //Debug.Log("attack pause " + attackPauseTime);
             
             
             
@@ -196,6 +201,6 @@ public class BossController : MonoBehaviour
             nextAttack = 0;
         }
 
-        nextAttack = 1;
+        //nextAttack = 1;
     }
 }

@@ -52,6 +52,10 @@ public class BossHealth : MonoBehaviour
             gameObject.SendMessage("OnDeath");
             anim.SetTrigger("dead");
             dead = true;
+            if (masterSoundController == null)
+                masterSoundController = FindObjectOfType<MasterSoundController>();
+            if (sfxController == null)
+                sfxController = FindObjectOfType<SFXController>();
             masterSoundController.StopBossMusic();
             sfxController.PlayBossDeath();
         } else if (dead)
@@ -71,6 +75,8 @@ public class BossHealth : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player Attack")
         {
+            if (sfxController == null)
+                sfxController = FindObjectOfType<SFXController>();
             sfxController.PlayBossHit();
             Debug.Log("Boss Health: " + health);
             health--;

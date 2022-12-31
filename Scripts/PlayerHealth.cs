@@ -70,6 +70,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnHit()
     {
+        checkSFXController();
         sfxController.PlayPlayerHit();
         health--;
         Debug.Log("health = " + health);
@@ -94,6 +95,11 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    void checkSFXController()
+    {
+        if (sfxController == null)
+            sfxController = FindObjectOfType<SFXController>();
+    }
 
 
 }

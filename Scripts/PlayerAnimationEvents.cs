@@ -15,21 +15,25 @@ public class PlayerAnimationEvents : MonoBehaviour
 
     public void step()
     {
+        checkSFXController();
         sfxController.PlayFootstep();
     }
 
     public void Land()
     {
+        checkSFXController();
         sfxController.PlayJumpLanding();
     }
 
     public void Laser()
     {
+        checkSFXController();
         sfxController.PlayLaser();
     }
 
     public void Hit()
     {
+        checkSFXController();
         sfxController.PlayPlayerHit();
     }
 

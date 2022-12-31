@@ -50,6 +50,11 @@ public class SFXController : MonoBehaviour
     [SerializeField] AudioClip projectileClip;
     [SerializeField, Range(0f, 1f)] float projectileVolume = 0.4f;
 
+    [Header("Projectile Explode")]
+    [SerializeField] AudioSource projectileExplodeSource;
+    [SerializeField] AudioClip projectileExplodeClip;
+    [SerializeField, Range(0f, 1f)] float projectileExplodeVolume = 0.4f;
+
     public bool fadeoutCompleted = false;
 
 
@@ -115,5 +120,10 @@ public class SFXController : MonoBehaviour
     {
         //masterSoundController.Cut();
         playerHitSource.PlayOneShot(playerHitClip, playerHitVolume);
+    }
+
+    public void PlayProjectileExplode()
+    {
+        projectileExplodeSource.PlayOneShot(projectileExplodeClip, projectileExplodeVolume);
     }
 }

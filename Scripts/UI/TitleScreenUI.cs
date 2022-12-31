@@ -24,7 +24,7 @@ public class TitleScreenUI : MonoBehaviour
         transition.Fade(Transition.FadeDirection.Out);
         MasterSoundController masterSoundController = GameObject.FindObjectOfType<MasterSoundController>();
         masterSoundController.EndScene();
-        yield return new WaitUntil(() => masterSoundController.fadeoutCompleted);
+        yield return new WaitUntil(() => masterSoundController.fadeoutCompleted && !transition.active);
         SceneManager.LoadScene("OutsideScene");
     }
 

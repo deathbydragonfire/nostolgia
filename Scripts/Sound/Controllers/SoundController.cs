@@ -107,4 +107,9 @@ public class SoundController : MonoBehaviour
     {
         audioSource.Play();
     }
+
+    public bool isPlaying()
+    {
+        return audioSource.isPlaying;
+    }
 }

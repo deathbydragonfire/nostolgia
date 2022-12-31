@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 790e0906db5c84441b58f8d163554ff0, type: 3}
   volume: 0.8
-  delayTime: 3
+  delayTime: 1
   fadeInTime: 0
   fadeOutTime: 2

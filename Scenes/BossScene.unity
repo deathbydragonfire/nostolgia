@@ -541,6 +541,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Controllers
       objectReference: {fileID: 0}
+    - target: {fileID: 8858645302722789389, guid: 47485ba47f2c11441a4ec213d5798f8e, type: 3}
+      propertyPath: laserVolume
+      value: 0.764
+      objectReference: {fileID: 0}
+    - target: {fileID: 8858645302722789389, guid: 47485ba47f2c11441a4ec213d5798f8e, type: 3}
+      propertyPath: bossHitVolume
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8858645302722789389, guid: 47485ba47f2c11441a4ec213d5798f8e, type: 3}
+      propertyPath: playerHitVolume
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8858645302722789389, guid: 47485ba47f2c11441a4ec213d5798f8e, type: 3}
+      propertyPath: projectileVolume
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8858645302722789389, guid: 47485ba47f2c11441a4ec213d5798f8e, type: 3}
+      propertyPath: projectileExplodeVolume
+      value: 0.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47485ba47f2c11441a4ec213d5798f8e, type: 3}
 --- !u!1001 &1086901721

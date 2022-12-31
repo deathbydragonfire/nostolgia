@@ -15,52 +15,53 @@ public class SFXController : MonoBehaviour
     [Header("Jump Landing")]
     [SerializeField] AudioSource jumpLandingSource;
     [SerializeField] AudioClip jumpLandingClip;
-    [SerializeField, Range(0f, 1f)] float jumpLandingVolumeMin = 0.4f;
-    [SerializeField, Range(0f, 1f)] float jumpLandingVolumeMax = 0.5f;
+    [SerializeField, Range(0f, 1f)] float jumpLandingVolumeMin;
+    [SerializeField, Range(0f, 1f)] float jumpLandingVolumeMax;
 
 
     [Header("Attack")]
     [SerializeField] AudioSource attackSource;
     [SerializeField] AudioClip attackClip;
-    [SerializeField, Range(0f, 1f)] float attackVolumeMin = 0.4f;
-    [SerializeField, Range(0f, 1f)] float attackVolumeMax = 0.5f;
+    [SerializeField, Range(0f, 1f)] float attackVolumeMin;
+    [SerializeField, Range(0f, 1f)] float attackVolumeMax;
 
     [Header("Laser")]
     [SerializeField] AudioSource laserSource;
     [SerializeField] AudioClip laserClip;
-    [SerializeField, Range(0f, 1f)] float laserVolume = 0.4f;
+    [SerializeField, Range(0f, 1f)] float laserVolume;
 
     [Header("Growl")]
     [SerializeField] AudioSource growlSource;
     [SerializeField] AudioClip growlClip;
-    [SerializeField, Range(0f, 1f)] float growlVolume = 0.4f;
+    [SerializeField, Range(0f, 1f)] float growlVolume;
 
     [Header("Boss Hit")]
     [SerializeField] AudioSource bossHitSource;
     [SerializeField] AudioClip bossHitClip;
-    [SerializeField, Range(0f, 1f)] float bossHitVolume = 0.4f;
+    [SerializeField, Range(0f, 1f)] float bossHitVolume;
 
     [Header("Player Hit")]
     [SerializeField] AudioSource playerHitSource;
     [SerializeField] AudioClip playerHitClip;
-    [SerializeField, Range(0f, 1f)] float playerHitVolume = 0.4f;
+    [SerializeField, Range(0f, 1f)] float playerHitVolume;
 
     [Header("Projectile")]
     [SerializeField] AudioSource projectileSource;
     [SerializeField] AudioClip projectileClip;
-    [SerializeField, Range(0f, 1f)] float projectileVolume = 0.4f;
+    [SerializeField, Range(0f, 1f)] float projectileVolume;
 
     [Header("Projectile Explode")]
     [SerializeField] AudioSource projectileExplodeSource;
     [SerializeField] AudioClip projectileExplodeClip;
-    [SerializeField, Range(0f, 1f)] float projectileExplodeVolume = 0.4f;
-
+    [SerializeField, Range(0f, 1f)] float projectileExplodeVolume;
     public bool fadeoutCompleted = false;
 
 
     private void Update()
     {
         fadeoutCompleted = masterSoundController.fadeoutCompleted;
+        if (Input.GetKeyDown(KeyCode.L))
+            PlayBossHit();
     }
     public void PlayFootstep()
     {

@@ -1323,20 +1323,20 @@ MonoBehaviour:
   attackVolumeMax: 0.7
   laserSource: {fileID: 2176975143704919251}
   laserClip: {fileID: 8300000, guid: 90738703233b8894191d7dce454dfaa2, type: 3}
-  laserVolume: 0.4
+  laserVolume: 0.764
   growlSource: {fileID: 5776249426074691228}
   growlClip: {fileID: 8300000, guid: 95433a67101ec9d43b563d02e4317377, type: 3}
-  growlVolume: 0.4
+  growlVolume: 0.45
   bossHitSource: {fileID: 6485412712605191234}
   bossHitClip: {fileID: 8300000, guid: 9ba53781102784040b323a4d4df3fcd6, type: 3}
-  bossHitVolume: 0.4
+  bossHitVolume: 0.15
   playerHitSource: {fileID: 7127110158329390612}
   playerHitClip: {fileID: 8300000, guid: 0977ed67186b022498df2d8fc3db7171, type: 3}
-  playerHitVolume: 0.4
+  playerHitVolume: 0.6
   projectileSource: {fileID: 2446721536745124738}
   projectileClip: {fileID: 8300000, guid: c87a5bd7c6870ea458aa186b578face9, type: 3}
-  projectileVolume: 0.4
+  projectileVolume: 0.6
   projectileExplodeSource: {fileID: 3263840304125924596}
   projectileExplodeClip: {fileID: 8300000, guid: 67d03c3dceefaed4195bf4e849a25eab, type: 3}
-  projectileExplodeVolume: 0.4
+  projectileExplodeVolume: 0.9
   fadeoutCompleted: 0

@@ -86,9 +86,7 @@ public class MasterSoundController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-            StopBossMusic();
-        fadeoutCompleted = musicController1.fadeOutCompleted && ambientController1.fadeOutCompleted &&
+        fadeoutCompleted = (musicController1.fadeOutCompleted || currentScene == "TitleScene") && ambientController1.fadeOutCompleted &&
                            musicController2.fadeOutCompleted && ambientController1.fadeOutCompleted;
 
         if (currentScene == "TitleScene")
@@ -119,12 +117,13 @@ public class MasterSoundController : MonoBehaviour
     {
         if (scene.name == "TitleScene" && currentScene != "TitleScene")
         {
-            musicController1.PlaySoundLooped(outsideMusic);
-            ambientController1.PlaySoundLooped(outsideAmbient);
+            if (currentScene != "OutsideScene")
+                musicController1.PlaySoundLooped(outsideMusic);
         }
         else if (scene.name == "OutsideScene" && currentScene != "OutsideScene")
-        {
-            musicController1.PlaySoundLooped(outsideMusic);
+        { 
+            if (currentScene != "TitleScene")
+                musicController1.PlaySoundLooped(outsideMusic);
             ambientController1.PlaySoundLooped(outsideAmbient);
             ambientController2.PlaySoundLooped(caveAmbient);
         }
@@ -138,7 +137,8 @@ public class MasterSoundController : MonoBehaviour
 
     public void EndScene()
     {
-        musicController1.StopSound();
+        if (currentScene != "TitleScene")
+            musicController1.StopSound();
         musicController2.StopSound();
         ambientController1.StopSound();
         ambientController2.StopSound();

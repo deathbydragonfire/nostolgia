@@ -69,9 +69,9 @@ MonoBehaviour:
   yLow: -40
   cutoffLow: 2000
   cutoffHigh: 22000
-  cutoffAttack: 0.5
+  cutoffAttack: 0.05
   cutoffSustain: 1
-  cutoffDecay: 0.5
+  cutoffDecay: 1
 --- !u!1001 &8858645301781297653
 PrefabInstance:
   m_ObjectHideFlags: 0

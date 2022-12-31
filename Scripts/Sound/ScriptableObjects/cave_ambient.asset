@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a593943f8deefc4a8e04909b573f709, type: 3}
   m_Name: cave_ambient
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 683fcdcf7abd8e240ab058cb35f3ab1a, type: 3}
-  volume: 1
+  clip: {fileID: 8300000, guid: 91e5e52c2102e664da4adf42ea60e06c, type: 3}
+  volume: 0.5
   delayTime: 0
-  fadeInTime: 0
-  fadeOutTime: 0
+  fadeInTime: 1
+  fadeOutTime: 2

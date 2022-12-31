@@ -30,11 +30,42 @@ public class SFXController : MonoBehaviour
     [SerializeField] AudioClip laserClip;
     [SerializeField, Range(0f, 1f)] float laserVolume = 0.4f;
 
+    [Header("Growl")]
+    [SerializeField] AudioSource growlSource;
+    [SerializeField] AudioClip growlClip;
+    [SerializeField, Range(0f, 1f)] float growlVolume = 0.4f;
+
+    [Header("Boss Hit")]
+    [SerializeField] AudioSource bossHitSource;
+    [SerializeField] AudioClip bossHitClip;
+    [SerializeField, Range(0f, 1f)] float bossHitVolume = 0.4f;
+
+    [Header("Player Hit")]
+    [SerializeField] AudioSource playerHitSource;
+    [SerializeField] AudioClip playerHitClip;
+    [SerializeField, Range(0f, 1f)] float playerHitVolume = 0.4f;
+
+    [Header("Projectile")]
+    [SerializeField] AudioSource projectileSource;
+    [SerializeField] AudioClip projectileClip;
+    [SerializeField, Range(0f, 1f)] float projectileVolume = 0.4f;
+
+    [Header("Projectile Explode")]
+    [SerializeField] AudioSource projectileExplodeSource;
+    [SerializeField] AudioClip projectileExplodeClip;
+    [SerializeField, Range(0f, 1f)] float projectileExplodeVolume = 0.4f;
+
+    public bool fadeoutCompleted = false;
+
+
+    private void Update()
+    {
+        fadeoutCompleted = masterSoundController.fadeoutCompleted;
+    }
     public void PlayFootstep()
     {
-        // TODO get SFX volume from settings and scale accordingly
         int index = Random.Range(0, footstepClips.Count);
-        float volume = Random.Range(footstepVolumeMin, footstepVolumeMax); // SCALE THIS
+        float volume = Random.Range(footstepVolumeMin, footstepVolumeMax);
         footstepSource.PlayOneShot(footstepClips[index], volume);
     }
 
@@ -50,13 +81,49 @@ public class SFXController : MonoBehaviour
         attackSource.PlayOneShot(attackClip, volume);
     }
 
-    public void PlayPlayerHit()
-    {
-        masterSoundController.Cut();
-    }
-
     public void PlayLaser()
     {
         laserSource.PlayOneShot(laserClip, laserVolume);
+    }
+
+    public void PlayGrowl()
+    {
+        growlSource.PlayOneShot(growlClip, growlVolume);
+    }
+
+    public void PlayBossHit()
+    {
+        bossHitSource.PlayOneShot(bossHitClip, bossHitVolume);
+    }
+
+    public void PlayProjectile()
+    {
+        projectileSource.PlayOneShot(projectileClip, projectileVolume);
+    }
+
+    public void EndScene()
+    {
+        masterSoundController.EndScene();
+    }
+
+    public void PlayBossMusic()
+    {
+        masterSoundController.PlayBossMusic();
+    }
+
+    public void StopBossMusic()
+    {
+        masterSoundController.StopBossMusic();
+    }
+
+    public void PlayPlayerHit()
+    {
+        //masterSoundController.Cut();
+        playerHitSource.PlayOneShot(playerHitClip, playerHitVolume);
+    }
+
+    public void PlayProjectileExplode()
+    {
+        projectileExplodeSource.PlayOneShot(projectileExplodeClip, projectileExplodeVolume);
     }
 }

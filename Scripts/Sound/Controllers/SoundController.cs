@@ -19,6 +19,7 @@ public class SoundController : MonoBehaviour
 
     public void PlaySoundLooped(AudioSO audioSO)
     {
+        fadeOutCompleted = false;
         audioSource.loop = true;
         currentAudioSO = audioSO;
         if (soundCoroutine == null)
@@ -27,6 +28,7 @@ public class SoundController : MonoBehaviour
 
     public void PlaySoundOnce(AudioSO audioSO)
     {
+        fadeOutCompleted = false;
         audioSource.loop = false;
         currentAudioSO = audioSO;
         if (soundCoroutine == null)
@@ -35,6 +37,7 @@ public class SoundController : MonoBehaviour
 
     public void PlaySoundScheduledLooped(AudioSO audioSO, double scheduledTime)
     {
+        currentAudioSO = audioSO;
         audioSource.loop = true;
         audioSource.clip = audioSO.clip;
         audioSource.volume = audioSO.volume; // TODO SCALE THIS
@@ -43,6 +46,7 @@ public class SoundController : MonoBehaviour
 
     public void PlaySoundScheduledOnce(AudioSO audioSO, double scheduledTime)
     {
+        currentAudioSO = audioSO;
         audioSource.loop = false;
         audioSource.clip = audioSO.clip;
         audioSource.volume = audioSO.volume; // TODO SCALE THIS
@@ -79,13 +83,16 @@ public class SoundController : MonoBehaviour
 
     IEnumerator _StopSound()
     {
-        float timer = 0f;
-        float startVolume = audioSource.volume;
-        while (timer <= currentAudioSO.fadeOutTime)
+        if (audioSource.isPlaying)
         {
-            timer += Time.deltaTime;
-            audioSource.volume = Mathf.Lerp(startVolume, 0f, timer / currentAudioSO.fadeOutTime);
-            yield return new WaitForEndOfFrame();
+            float timer = 0f;
+            float startVolume = audioSource.volume;
+            while (timer <= currentAudioSO.fadeOutTime)
+            {
+                timer += Time.deltaTime;
+                audioSource.volume = Mathf.Lerp(startVolume, 0f, timer / currentAudioSO.fadeOutTime);
+                yield return new WaitForEndOfFrame();
+            }
         }
         audioSource.Stop();
         fadeOutCompleted = true;

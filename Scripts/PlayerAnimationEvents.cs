@@ -6,23 +6,31 @@ public class PlayerAnimationEvents : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public SFXController sfxController;
-    public void step()
+    SFXController sfxController;
+
+    private void Start()
     {
         checkSFXController();
+    }
+
+    public void step()
+    {
         sfxController.PlayFootstep();
     }
 
     public void Land()
     {
-        checkSFXController();
         sfxController.PlayJumpLanding();
     }
 
     public void Laser()
     {
-        checkSFXController();
         sfxController.PlayLaser();
+    }
+
+    public void Hit()
+    {
+        sfxController.PlayPlayerHit();
     }
 
     private void checkSFXController()

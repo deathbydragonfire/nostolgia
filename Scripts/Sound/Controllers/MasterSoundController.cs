@@ -9,8 +9,16 @@ using UnityEngine.Video;
 
 public class MasterSoundController : MonoBehaviour
 {
-    [SerializeField] AudioMixer mixer;
+    public bool fadeoutCompleted;
 
+    [Header("Mixer")]
+    [SerializeField] AudioMixer mixer;
+    public float masterVolume = 1f;
+    public float musicVolume = 1f;
+    public float sfxVolume = 1f;
+    public float ambientVolume = 1f;
+
+    [Header("Controllers")]
     [SerializeField] SoundController musicController1;
     [SerializeField] SoundController musicController2;
     [SerializeField] SoundController ambientController1;
@@ -18,7 +26,6 @@ public class MasterSoundController : MonoBehaviour
     [SerializeField] SFXController sfxController;
 
     string currentScene;
-    public bool fadeoutCompleted;
 
     [Header("Music")]
     [SerializeField] AudioSO outsideMusic;
@@ -67,24 +74,32 @@ public class MasterSoundController : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.L))
-        {
-            Cut();
-        }
-        
-        fadeoutCompleted = musicController1.fadeOutCompleted && ambientController1.fadeOutCompleted;
+            StopBossMusic();
+        fadeoutCompleted = musicController1.fadeOutCompleted && ambientController1.fadeOutCompleted &&
+                           musicController2.fadeOutCompleted && ambientController1.fadeOutCompleted;
+
+        mixer.SetFloat("masterVol", ConvertVolumeToDB(masterVolume));
+        mixer.SetFloat("musicVol", ConvertVolumeToDB(musicVolume));
+        mixer.SetFloat("sfxVol", ConvertVolumeToDB(sfxVolume));
+
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player");
         if (player == null)
             return;
+
         float playerY = player.transform.position.y;
         if (currentScene == "OutsideScene")
         {
             float outsideVolume = (outsideVolumeMax - outsideVolumeMin) / (yHigh - yLow) * (playerY - yLow) + outsideVolumeMin;
-            outsideVolume = Mathf.Clamp(outsideVolume, outsideVolumeMin, outsideVolumeMax);
+            outsideVolume = Mathf.Clamp(outsideVolume, outsideVolumeMin, outsideVolumeMax) + ConvertVolumeToDB(ambientVolume);
             mixer.SetFloat("ambient1Vol", outsideVolume);
             float caveVolume = (caveVolumeMin - caveVolumeMax) / (yHigh - yLow) * (playerY - yLow) + caveVolumeMax;
-            caveVolume = Mathf.Clamp(caveVolume, caveVolumeMin, caveVolumeMax);
+            caveVolume = Mathf.Clamp(caveVolume, caveVolumeMin, caveVolumeMax) + ConvertVolumeToDB(ambientVolume);
             mixer.SetFloat("ambient2Vol", caveVolume);
+        }
+        else if (currentScene == "BossScene")
+        {
+            mixer.SetFloat("ambient1Vol", ConvertVolumeToDB(ambientVolume));
         }
     }
 
@@ -96,12 +111,10 @@ public class MasterSoundController : MonoBehaviour
             ambientController1.PlaySoundLooped(outsideAmbient);
             ambientController2.PlaySoundLooped(caveAmbient);
         }
-        else if (scene.name == "BossScene" && currentScene != "BossScene") 
+        else if (scene.name == "BossScene" && currentScene != "BossScene")
         {
-            double startTime = AudioSettings.dspTime + 0.1;
-            double durationFirstLoop = (double) bossMusicFirstLoop.clip.samples / bossMusicFirstLoop.clip.frequency;
-            musicController1.PlaySoundScheduledOnce(bossMusicFirstLoop, startTime);
-            musicController2.PlaySoundScheduledLooped(bossMusicLoop, startTime + durationFirstLoop);
+            ambientController1.PlaySoundLooped(caveAmbient);
+            PlayBossMusic();
         }
 
         currentScene = scene.name;
@@ -113,6 +126,22 @@ public class MasterSoundController : MonoBehaviour
         musicController2.StopSound();
         ambientController1.StopSound();
         ambientController2.StopSound();
+    }
+
+    public void PlayBossMusic()
+    {
+        double startTime = AudioSettings.dspTime + 0.1;
+        double durationFirstLoop = (double) bossMusicFirstLoop.clip.samples / bossMusicFirstLoop.clip.frequency;
+        musicController1.PlaySoundScheduledOnce(bossMusicFirstLoop, startTime);
+        musicController2.PlaySoundScheduledLooped(bossMusicLoop, startTime + durationFirstLoop);
+        ambientController1.StopSound();
+    }
+
+    public void StopBossMusic() 
+    {
+        musicController1.StopSound();
+        musicController2.StopSound();
+        ambientController1.PlaySoundLooped(caveAmbient);
     }
 
     public void Cut()
@@ -142,5 +171,10 @@ public class MasterSoundController : MonoBehaviour
         }
 
         cutCoroutine = null;
+    }
+
+    float ConvertVolumeToDB(float volume)
+    {
+        return Mathf.Log10(volume) * 20f;
     }
 }

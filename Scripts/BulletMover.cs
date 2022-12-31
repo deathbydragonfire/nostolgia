@@ -27,6 +27,8 @@ public class BulletMover : MonoBehaviour
             // If the local scale is positive, shoot to the right
             rb.velocity = new Vector2(speed, 0);
         }
+
+        
     }
 
     void Update()
@@ -48,9 +50,11 @@ public class BulletMover : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        // When the bullet collides with another object, destroy it
-        Destroy(gameObject);
+        if (collider.gameObject.layer != 8)
+        {
+            Destroy(gameObject);
+        }
     }
 }

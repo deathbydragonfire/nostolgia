@@ -31,11 +31,18 @@ public class BossController : MonoBehaviour
     private bool newAttack = true;
     public GameObject beamPrefab;
     public Transform beamAttackSource;
+    public GameObject chargePrefab;
+
+    private int nextAttack;
+
+    public float[] firetimes;
+    private int shots = 0;
 
     void Start()
     {
         roamingtime = Random.Range(minRoamingTime, maxRoamingTime);
         GetNextCorner();
+        GetNextAttack();
     }
 
     void Update()
@@ -54,25 +61,24 @@ public class BossController : MonoBehaviour
                 roamingtime = Random.Range(minRoamingTime, maxRoamingTime);
                 timer = 0.0f;
                 state = 1;
+                GetNextAttack();
             }
         }
         else if (state == 1)
         {
-            
-            seek();
-            if (timer > attackSeekTime)
+            if (nextAttack != 0 || timer > attackSeekTime)
             {
                 timer = 0f;
                 state = 2;
+            } else {
+                Debug.Log("seek");
+                seek(); 
             }
+            
         }
         else 
         {
-            if (newAttack)
-            {
-                attack();
-                newAttack = false;
-            }
+            attack();
 
             
             if (timer > attackPauseTime)
@@ -81,21 +87,40 @@ public class BossController : MonoBehaviour
                 state = 0;
                 newAttack = true;
             }
+
         }
     }
 
     void attack()
     {
-        if (Random.Range(0, 1) == 0)
+        if (nextAttack == 0)
         {
-            // Attack 1
-            animator.SetTrigger("Attack1");
-            GameObject newBeamAttack = GameObject.Instantiate(beamPrefab, beamAttackSource);
+            if (newAttack)
+            {
+                // Attack 1
+                attackPauseTime = 2f;
+                animator.SetTrigger("Attack1");
+                GameObject newBeamAttack = GameObject.Instantiate(beamPrefab, beamAttackSource);
+                newAttack = false;
+
+            }
         }
         else
         {
             // Attack 2
-            animator.SetTrigger("Attack2");
+            Debug.Log("firetime " + firetimes.Length);
+            attackPauseTime = firetimes[firetimes.Length - 1] + 2f;
+            Debug.Log("attack pause " + attackPauseTime);
+            
+            
+            
+                if (shots < firetimes.Length && timer > firetimes[shots])
+                {
+                    animator.SetTrigger("Attack2");
+                    GameObject charge = GameObject.Instantiate(chargePrefab, beamAttackSource.position, beamAttackSource.rotation);
+                    shots++;
+                }
+            
         }
     }
 
@@ -143,10 +168,12 @@ public class BossController : MonoBehaviour
                 nextCornerIndex--;
             } else
             {
-                nextCornerIndex += (int)Mathf.Sign(Random.Range(-1, 2));
+                float i = Random.Range(-1, 1); 
+                //Debug.Log(i);
+                nextCornerIndex += (int)Mathf.Sign(i);
             }
         }
-        Debug.Log("Corner: " + nextCornerIndex);
+        //Debug.Log("Corner: " + nextCornerIndex);
         nextCorner = corners[nextCornerIndex];
     }
 
@@ -156,5 +183,19 @@ public class BossController : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, target.position.y), speed * Time.deltaTime);
         }
+    }
+
+    void GetNextAttack()
+    {
+        //nextAttack = Random.Range(0, 1);
+        if (Mathf.Abs(transform.position.x) < 25)
+        {
+            nextAttack = 1;
+        } else
+        {
+            nextAttack = 0;
+        }
+
+        nextAttack = 1;
     }
 }

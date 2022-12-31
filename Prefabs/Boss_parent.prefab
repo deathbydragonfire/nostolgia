@@ -281,6 +281,12 @@ MonoBehaviour:
   move: 1
   beamPrefab: {fileID: 4289404091507056057, guid: dc6c04e0f2aba354d8ce92cc3c4edcbe, type: 3}
   beamAttackSource: {fileID: 3398919341590771534}
+  chargePrefab: {fileID: 0}
+  firetimes:
+  - 1
+  - 2
+  - 2.7
+  shots: 0
 --- !u!1 &4088921556165102434
 GameObject:
   m_ObjectHideFlags: 0

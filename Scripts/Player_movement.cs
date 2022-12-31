@@ -36,4 +36,10 @@ public class Player_movement : MonoBehaviour
         cc2D.Move(h * Time.fixedDeltaTime, false, j);
 
     }
+
+    void OnDeath()
+    {
+        GetComponent<CharacterController2D>().enabled = false;
+        GetComponent<Player_movement>().enabled = false;
+    }
 }

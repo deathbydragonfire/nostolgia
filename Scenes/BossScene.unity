@@ -949,6 +949,10 @@ PrefabInstance:
       propertyPath: sfxController
       value: 
       objectReference: {fileID: 316213004}
+    - target: {fileID: 7737572650515141942, guid: 07f788822d761bc4c8e708071607089d, type: 3}
+      propertyPath: respawnScene
+      value: BossScene
+      objectReference: {fileID: 0}
     - target: {fileID: 8545117550280263422, guid: 07f788822d761bc4c8e708071607089d, type: 3}
       propertyPath: sfxController
       value: 

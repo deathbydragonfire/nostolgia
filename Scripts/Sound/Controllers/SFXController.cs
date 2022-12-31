@@ -40,6 +40,11 @@ public class SFXController : MonoBehaviour
     [SerializeField] AudioClip bossHitClip;
     [SerializeField, Range(0f, 1f)] float bossHitVolume = 0.4f;
 
+    [Header("Player Hit")]
+    [SerializeField] AudioSource playerHitSource;
+    [SerializeField] AudioClip playerHitClip;
+    [SerializeField, Range(0f, 1f)] float playerHitVolume = 0.4f;
+
     [Header("Projectile")]
     [SerializeField] AudioSource projectileSource;
     [SerializeField] AudioClip projectileClip;
@@ -54,9 +59,8 @@ public class SFXController : MonoBehaviour
     }
     public void PlayFootstep()
     {
-        // TODO get SFX volume from settings and scale accordingly
         int index = Random.Range(0, footstepClips.Count);
-        float volume = Random.Range(footstepVolumeMin, footstepVolumeMax); // SCALE THIS
+        float volume = Random.Range(footstepVolumeMin, footstepVolumeMax);
         footstepSource.PlayOneShot(footstepClips[index], volume);
     }
 
@@ -70,11 +74,6 @@ public class SFXController : MonoBehaviour
     {
         float volume = Random.Range(attackVolumeMin, attackVolumeMax);
         attackSource.PlayOneShot(attackClip, volume);
-    }
-
-    public void PlayPlayerHit()
-    {
-        masterSoundController.Cut();
     }
 
     public void PlayLaser()
@@ -110,5 +109,11 @@ public class SFXController : MonoBehaviour
     public void StopBossMusic()
     {
         masterSoundController.StopBossMusic();
+    }
+
+    public void PlayPlayerHit()
+    {
+        //masterSoundController.Cut();
+        playerHitSource.PlayOneShot(playerHitClip, playerHitVolume);
     }
 }

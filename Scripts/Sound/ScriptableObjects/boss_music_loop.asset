@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: boss_music_loop
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 08e1e61c649a13f48ab5de6f8575dd4c, type: 3}
-  volume: 0.1
+  volume: 0.2
   delayTime: 0
   fadeInTime: 0
   fadeOutTime: 2

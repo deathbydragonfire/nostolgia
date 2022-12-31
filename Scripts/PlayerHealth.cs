@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     // Start is called before the first frame update
-    private int health = 1;
+    private int health = 8;
     private bool dead = false;
     float timer = 0f;
     public float deathtime = 1f;

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5221110006184316687}
   m_Layer: 10
   m_Name: attack_slash
-  m_TagString: Player
+  m_TagString: Player Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

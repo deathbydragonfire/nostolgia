@@ -106,6 +106,9 @@ public class Projectile : MonoBehaviour
             Debug.Log("hit");
             collider.gameObject.SendMessage("OnHit");
             StartCoroutine(explode());
+        } else if (collider.gameObject.tag == "Player Attack")
+        {
+            StartCoroutine(explode());
         }
     }
 

@@ -203,4 +203,9 @@ public class BossController : MonoBehaviour
 
         //nextAttack = 1;
     }
+
+    void OnDeath()
+    {
+        GetComponent<BossController>().enabled = false;
+    }
 }

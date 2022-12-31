@@ -178,7 +178,7 @@ public class BossController : MonoBehaviour
                 nextCornerIndex += (int)Mathf.Sign(i);
             }
         }
-        //Debug.Log("Corner: " + nextCornerIndex);
+        Debug.Log("Corner: " + nextCornerIndex);
         nextCorner = corners[nextCornerIndex];
     }
 
@@ -193,7 +193,7 @@ public class BossController : MonoBehaviour
     void GetNextAttack()
     {
         //nextAttack = Random.Range(0, 1);
-        if (Mathf.Abs(transform.position.x) < 25)
+        if (Mathf.Abs(transform.position.x) < 21)
         {
             nextAttack = 1;
         } else

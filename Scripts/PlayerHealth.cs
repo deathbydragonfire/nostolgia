@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     // Start is called before the first frame update
-    private int health = 100;
+    private int health = 5;
     private bool dead = false;
     float timer = 0f;
     public float deathtime = 1f;
@@ -14,9 +14,33 @@ public class PlayerHealth : MonoBehaviour
 
     SFXController sfxController;
 
+    // The prefab for the heart UI element
+    public GameObject heartPrefab;
+
+    // The parent object for the heart UI elements
+    public Transform heartParent;
+
+    // The list of heart UI elements
+    private List<GameObject> hearts = new List<GameObject>();
+
+    public float heartspacing = 6f;
+
+
     void Start()
     {
         sfxController = GameObject.FindObjectOfType<SFXController>();
+        
+        // Create the heart UI elements
+        for (int i = 0; i < health; i++)
+        {
+            // Create a new heart UI element
+            GameObject heart = Instantiate(heartPrefab, heartParent);
+            heart.transform.position = new Vector3(heart.transform.position.x + heartspacing * i, heart.transform.position.y, heart.transform.position.z);
+            
+
+            // Add the heart to the list
+            hearts.Add(heart);
+        }
     }
 
     // Update is called once per frame
@@ -35,7 +59,12 @@ public class PlayerHealth : MonoBehaviour
             {
                 SceneManager.LoadScene(respawnScene);
             }
+        } else
+        {
+            
         }
+        
+        UpdateHealthUI();
     }
 
     private void OnHit()
@@ -45,6 +74,25 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("health = " + health);
     }
 
-   
+    // The function to update the health UI
+    private void UpdateHealthUI()
+    {
+        // Loop through the heart UI elements
+        for (int i = 0; i < hearts.Count; i++)
+        {
+            // If the current health is less than or equal to the index of the current heart, disable the heart
+            if (health <= i)
+            {
+                hearts[i].SetActive(false);
+            }
+            // Otherwise, enable the heart
+            else
+            {
+                hearts[i].SetActive(true);
+            }
+        }
+    }
+
+
 
 }

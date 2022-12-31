@@ -966,6 +966,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Controllers
       objectReference: {fileID: 0}
+    - target: {fileID: 8858645302722789389, guid: 47485ba47f2c11441a4ec213d5798f8e, type: 3}
+      propertyPath: bossDeathVolume
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47485ba47f2c11441a4ec213d5798f8e, type: 3}
 --- !u!114 &559219916 stripped

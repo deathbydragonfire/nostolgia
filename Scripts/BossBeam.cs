@@ -13,6 +13,7 @@ public class BossBeam : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject.FindObjectOfType<SFXController>().PlayLaser();
         collider = GetComponent<Collider2D>();
         collider.enabled = false;
         GameObject.FindObjectOfType<SFXController>().PlayLaser();

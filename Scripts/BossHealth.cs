@@ -9,10 +9,11 @@ public class BossHealth : MonoBehaviour
     private float timer = 0f;
     public float deathtime = 2.5f;
     public Animator anim;
+    SFXController sfxController;
     // Start is called before the first frame update
     void Start()
     {
-        
+        sfxController = FindObjectOfType<SFXController>();
     }
 
     // Update is called once per frame
@@ -37,6 +38,7 @@ public class BossHealth : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player Attack")
         {
+            sfxController.PlayBossHit();
             Debug.Log("Boss Health: " + health);
             health--;
         }

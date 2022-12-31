@@ -107,7 +107,7 @@ public class MasterSoundController : MonoBehaviour
             caveVolume = Mathf.Clamp(caveVolume, caveVolumeMin, caveVolumeMax) + ConvertVolumeToDB(ambientVolume);
             mixer.SetFloat("ambient2Vol", caveVolume);
         }
-        else if (currentScene == "BossScene")
+        else if (currentScene == "BossScene2")
         {
             mixer.SetFloat("ambient1Vol", ConvertVolumeToDB(ambientVolume));
         }
@@ -127,7 +127,7 @@ public class MasterSoundController : MonoBehaviour
             ambientController1.PlaySoundLooped(outsideAmbient);
             ambientController2.PlaySoundLooped(caveAmbient);
         }
-        else if (scene.name == "BossScene" && currentScene != "BossScene")
+        else if (scene.name == "BossScene2" && currentScene != "BossScene2")
         {
             ambientController1.PlaySoundLooped(caveAmbient);
             PlayBossMusic();

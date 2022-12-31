@@ -6,14 +6,25 @@ using UnityEngine.SceneManagement;
 public class TitleScreenUI : MonoBehaviour
 {
     [SerializeField] GameObject settingsScreen;
+    [SerializeField] Transition transition;
 
     public void Start()
     {
         settingsScreen.SetActive(false);
+        transition.Fade(Transition.FadeDirection.In);
     }
 
     public void Play()
     {
+        StartCoroutine(_Play());
+    }
+
+    IEnumerator _Play()
+    {
+        transition.Fade(Transition.FadeDirection.Out);
+        MasterSoundController masterSoundController = GameObject.FindObjectOfType<MasterSoundController>();
+        masterSoundController.EndScene();
+        yield return new WaitUntil(() => masterSoundController.fadeoutCompleted);
         SceneManager.LoadScene("OutsideScene");
     }
 

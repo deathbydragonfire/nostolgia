@@ -30,6 +30,8 @@ public class Projectile : MonoBehaviour
 
     private Vector3 direction;
 
+    SFXController sfxController;
+
     void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -37,6 +39,8 @@ public class Projectile : MonoBehaviour
         playerPos = player.transform.position;
         direction = playerPos - transform.position;
         // Wait for the flyTowardsDelay before starting to fly towards the player's location
+        sfxController = GameObject.FindObjectOfType<SFXController>();
+        sfxController.PlayProjectile();
     }
 
     void Update()
@@ -103,6 +107,7 @@ public class Projectile : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             // Delete the projectile
+            sfxController.PlayProjectileExplode();
             Debug.Log("hit");
             collider.gameObject.SendMessage("OnHit");
             StartCoroutine(explode());

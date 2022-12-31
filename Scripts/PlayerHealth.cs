@@ -11,9 +11,12 @@ public class PlayerHealth : MonoBehaviour
     float timer = 0f;
     public float deathtime = 1f;
     public string respawnScene;
+
+    SFXController sfxController;
+
     void Start()
     {
-
+        sfxController = GameObject.FindObjectOfType<SFXController>();
     }
 
     // Update is called once per frame
@@ -37,6 +40,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnHit()
     {
+        sfxController.PlayPlayerHit();
         health--;
         Debug.Log("health = " + health);
     }

@@ -1331,8 +1331,8 @@ MonoBehaviour:
   bossHitClip: {fileID: 8300000, guid: 9ba53781102784040b323a4d4df3fcd6, type: 3}
   bossHitVolume: 0.15
   playerHitSource: {fileID: 7127110158329390612}
-  playerHitClip: {fileID: 8300000, guid: 0977ed67186b022498df2d8fc3db7171, type: 3}
-  playerHitVolume: 0.6
+  playerHitClip: {fileID: 8300000, guid: 0fa5fc34cffdc524481d585f98f111d3, type: 3}
+  playerHitVolume: 0.8
   projectileSource: {fileID: 2446721536745124738}
   projectileClip: {fileID: 8300000, guid: c87a5bd7c6870ea458aa186b578face9, type: 3}
   projectileVolume: 0.6

@@ -15,6 +15,7 @@ public class BossBeam : MonoBehaviour
     {
         collider = GetComponent<Collider2D>();
         collider.enabled = false;
+        GameObject.FindObjectOfType<SFXController>().PlayLaser();
     }
 
     // Update is called once per frame
